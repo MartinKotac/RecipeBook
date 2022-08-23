@@ -1,0 +1,3 @@
+<div class="container-fluid" *ngFor="let user of users; let i=index">
+  <p>{{user}} | <a (click)="onSetToActive(i)" style="cursor: pointer;">Set to active</a></p>
+</div>
