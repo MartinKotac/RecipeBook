@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Recipe} from "../../shared/models/recipe.model";
 import {RecipeService} from "../../shared/services/recipe.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -27,7 +27,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route})
-
   }
 
   ngOnDestroy(): void {

@@ -14,7 +14,7 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error: string = '';
 
-  constructor(private authService: AuthService,private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
