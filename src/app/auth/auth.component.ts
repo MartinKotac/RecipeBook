@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthResponseData, AuthService} from "./auth.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {AlertComponent} from "../shared/alert/alert.component";
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +15,8 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router,
+              private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit(): void {
@@ -42,9 +44,20 @@ export class AuthComponent implements OnInit {
     }, error => {
       console.log(error)
       this.error = 'An error occurred!'
+      this.showErrorAlert(this.error)
       this.isLoading = false;
     });
     form.reset();
+  }
+  onHandleError(){
+    // @ts-ignore
+    this.error = null;
+  }
+
+  private showErrorAlert(message: string){
+   //const alertCmp = new AlertComponent();
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+
   }
 
 }
