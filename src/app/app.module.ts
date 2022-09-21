@@ -15,6 +15,7 @@ import { AuthComponent } from './auth/auth.component';
 import {RecipesModule} from "./recipes/recipes.module";
 import {ShoppingListModule} from "./shopping-list/shopping-list.module";
 import {SharedModule} from "./shared/shared.module";
+import { TestingComponent } from './exercise/testing/testing.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {SharedModule} from "./shared/shared.module";
     ExerciseComponent,
     ActiveUsersComponent,
     InactiveUsersComponent,
-    AuthComponent
+    AuthComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,
